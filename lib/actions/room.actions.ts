@@ -1,5 +1,7 @@
 'use server';
 
+import { sendNotificationEmail } from '../email';
+
 import { nanoid } from 'nanoid'
 import { liveblocks } from '../liveblocks';
 import { revalidatePath } from 'next/cache';
@@ -102,8 +104,17 @@ export const updateDocumentAccess = async ({ roomId, email, userType, updatedBy 
         },
         roomId
       })
+      await sendNotificationEmail(
+        email,
+        `You've been granted ${userType} access to a document`,
+        `
+          <p>Hi,</p>
+          <p><strong>${updatedBy.name}</strong> has given you <strong>${userType}</strong> access to the document titled: <i>${room.metadata.title}</i>.</p>
+          <p><a href="${process.env.NEXT_PUBLIC_BASE_URL}/document/${roomId}">Click here to open the document</a>.</p>
+          <p>Happy collaborating!<br/>— The LivDocs Team</p>
+        `
+      );
     }
-
     revalidatePath(`/documents/${roomId}`);
     return parseStringify(room);
   } catch (error) {

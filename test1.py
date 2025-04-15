@@ -9,8 +9,8 @@ driver = webdriver.Chrome()
 
 try:
     # Open the Clerk login page
-    driver.get("http://localhost:3002/sign-in")  # Replace with actual login URL
-    print("🔍 Waiting for page to load...")
+    driver.get("https://livedocs-sand.vercel.app/")  # Replace with actual login URL
+    print("Waiting for page to load...")
     time.sleep(3)  # Short wait before looking for elements
 
     # Wait up to 15 seconds for the button to appear
@@ -20,19 +20,19 @@ try:
     )
 
     # Click the button
-    print("✅ Found and clicking 'Continue with Google' button")
+    print("✅Found and clicking 'Continue with Google' button")
     google_button.click()
     
     # Wait for login to process
     time.sleep(10)  # Adjust if needed
-    print("✅ Login flow started. Please select Google account manually.")
-    print("✅ Test Case Passed. ")
+    print("✅Login flow started. Please select Google account manually.")
+    print("✅Test Case Passed. ")
 
 except Exception as e:
-    print(f"⚠️ Test Error: {e}")
+    print(f"Test Error: {e}")
 
 finally:
     # Keep browser open for analysis
     time.sleep(5)
-    print("🔍 Browser will close in 5 seconds...")
+    print("Browser will close in 5 seconds...")
     driver.quit()

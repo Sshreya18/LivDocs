@@ -1,3 +1,6 @@
+// function needed through the project at various places
+
+
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

@@ -1,3 +1,5 @@
+//page that shows all the document (main dashboard)
+
 import AddDocumentBtn from '@/components/AddDocumentBtn';
 import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header'

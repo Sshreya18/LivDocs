@@ -1,3 +1,4 @@
+// show what all is in the editor page
 'use client';
 
 import Theme from './plugins/Theme';
