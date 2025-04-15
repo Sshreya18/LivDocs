@@ -110,8 +110,8 @@ export const updateDocumentAccess = async ({ roomId, email, userType, updatedBy 
         `
           <p>Hi,</p>
           <p><strong>${updatedBy.name}</strong> has given you <strong>${userType}</strong> access to the document titled: <i>${room.metadata.title}</i>.</p>
-          <p><a href="${process.env.NEXT_PUBLIC_BASE_URL}/document/${roomId}">Click here to open the document</a>.</p>
-          <p>Happy collaborating!<br/>— The LivDocs Team</p>
+          <p>Open LivDocs to check</p>
+          <p>Happy collaborating!<br/>The LivDocs Team</p>
         `
       );
     }
